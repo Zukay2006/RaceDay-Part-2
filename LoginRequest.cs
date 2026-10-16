@@ -1,0 +1,20 @@
+﻿
+using System.ComponentModel.DataAnnotations;
+
+namespace RaceDay.API.DTOs
+{
+    public class LoginRequest
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        public string Password { get; set; } = string.Empty;
+
+        [Required]
+        [RegularExpression("^(Organiser|Participant)$",
+            ErrorMessage = "Role must be Organiser or Participant.")]
+        public string Role { get; set; } = string.Empty;
+    }
+}
